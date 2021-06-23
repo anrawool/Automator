@@ -37,7 +37,6 @@
                 <option>Basic</option>
                 <option>Basic + DB</option>
                 <option>Laravel</option>
-                <option>Advanced</option>
                 <option>Website</option>
                 <option>Web Application</option>
             </select>
