@@ -91,7 +91,7 @@ tr:nth-child(even) {
                 }
                 $maxRuns++;
                 if($maxRuns === 7) {
-                    echo "<a href=\"./all_files.php?dir=$dir\" style=\"color: grey; text-decoration: none;\"> ...</a>";
+                    echo "<a href=\"./all_files.php?dir=$dir\" style=\"color: rgb(105, 178, 247); text-decoration: none;\"> ...</a>";
                     break;
                     $maxRuns = 0;
                 }
