@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css" integrity="sha512-ifsLB5FigXH07aADF1bmVX8B66KrNLZGT6RY9HPN3hTn9eaP+t16azYMAuULHZJyR8zC4O5Vt/76YZG6jNktIA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <title>All Folders</title>
@@ -13,25 +15,6 @@ h1 {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;;
     text-decoration: underline;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 50%;
-  max-width: 800px;
-  margin: 10px 20px;
-  border-radius: 2px;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
 }
 </style>
 </head>
@@ -51,17 +34,25 @@ tr:nth-child(even) {
     </div>
 </nav>
 
-<h1>Folders:</h1>
 
-
-<table class="table table-dark table-striped">
-  <tr>
-    <th>Sl.</th>
-    <th>Name</th>
-    <th>Items</th>
-  </tr>
-  
-  <?php
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Folders</h1>
+    </div>
+    <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+      <table class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Sl.</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Name</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Items</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Version</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
     
 //   echo $filecount . "files ";
     
@@ -77,7 +68,7 @@ tr:nth-child(even) {
             echo $sl;
             echo "</td>";
             echo "<td>";
-            echo "<a href=\"./$dir\" style=\"color: white;\">";
+            echo "<a href=\"./$dir\" class=\"w-10 text-center text-gray-900 text-lg\">";
             echo $dir;
             echo "</a>";
             echo "</td>";
@@ -86,17 +77,27 @@ tr:nth-child(even) {
               $maxRuns = 0;
                 if(substr($file, 0, 1) != ".") {
                     if(strpos($file, ".")) {
-                      echo  "<a href=\"./$dir/$file\" style=\"color: rgb(105, 178, 247); text-decoration: none;\">" . ucwords($file). "</a>  ";
+                      echo  "<a href=\"./$dir/$file\" class=\"px-4 py-3 text-lg text-gray-900\">" . ucwords($file). "</a>  ";
                     }
                 }
                 $maxRuns++;
                 if($maxRuns === 7) {
-                    echo "<a href=\"./all_files.php?dir=$dir\" style=\"color: rgb(105, 178, 247); text-decoration: none;\"> ...</a>";
+                    echo "<a href=\"./all_files.php?dir=$dir\" class=\"px-4 py-3 text-lg text-gray-900\"> ...</a>";
                     break;
                     $maxRuns = 0;
                 }
             }
             
+            echo "</td>";
+            echo "<td class=\"text-center\">";
+            $jsonVersion = file_get_contents("$dir/version.json");
+            $decodedJsonVersion = json_decode($jsonVersion, true);
+            // var_dump($decodedJsonVersion);
+            echo $decodedJsonVersion['info'][0][version];
+            // echo $type;
+            echo "</td>";
+            echo "<td class=\"text-center\">";
+            echo $decodedJsonVersion['info'][0][type];
             echo "</td>";
             echo "</tr>";
             $sl++;
@@ -105,7 +106,12 @@ tr:nth-child(even) {
         
     }
     ?>
-</table>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</section>
 
 </body>
 </html>

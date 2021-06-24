@@ -3,6 +3,77 @@ session_start();
 $project_name = $_POST['project_name'];
 $_SESSION['type'] = $project_type = $_POST['project_type'];
 
+$infoApp = 
+'
+{
+  "info": [
+      {
+          "version" : "1.0",
+          "type" : "Web Application"
+      }
+  ]
+}
+
+';
+
+$infoWeb = 
+'
+{
+  "info": [
+      {
+          "version" : "1.0",
+          "type" : "Website"
+      }
+  ]
+}
+
+';
+
+
+$infoBasic = 
+'
+
+
+{
+  "info": [
+      {
+          "version" : "1.0",
+          "type" : "Basic"
+      }
+  ]
+}
+
+
+';
+
+
+$infoBasicDB = 
+'
+{
+  "info": [
+      {
+          "version" : "1.0",
+          "type" : "Basic + DB"
+      }
+  ]
+}
+
+';
+
+
+$info = 
+'
+{
+  "info": [
+      {
+          "version" : "1.0",
+          "type" : "Any"
+      }
+  ]
+}
+
+';
+
 $login = "<?php 
 session_start();
 
@@ -450,6 +521,10 @@ switch ($project_type) {
         fwrite($file, $html);
         fwrite($configFile, $config);
         $file = fopen("$project_name/css/style.css", "w");
+
+        $versionFile = fopen("$project_name/version.json", "w");
+        fwrite($versionFile, $infoBasic);
+
         fwrite($file, $css);
         header("location: $project_name");
         break;
@@ -466,6 +541,10 @@ switch ($project_type) {
         $footer = fopen("$project_name/inc/footer.php", "w");
         $file = fopen("$project_name/index.php", "w");
         $cssFile = fopen("$project_name/css/style.css", "w");
+
+        $versionFile = fopen("$project_name/version.json", "w");
+        fwrite($versionFile, $infoBasicDB);
+
         fwrite($file, $html);
         fwrite($cssFile, $css);
         fwrite($configFile, $config);
@@ -481,6 +560,10 @@ switch ($project_type) {
         fwrite($file, $html);
         $cssFile = fopen("$project_name/css/style.css", "w");
         fwrite($cssFile, $css);
+
+        $versionFile = fopen("$project_name/version.json", "w");
+        fwrite($versionFile, $infoWeb);
+
         header("location: $project_name");
         break;
 
@@ -517,6 +600,10 @@ switch ($project_type) {
 
       $cssFile = fopen("$project_name/css/style.css", "w");
       $signupCssFile = fopen("$project_name/css/signup.css", "w");
+
+      $versionFile = fopen("$project_name/version.json", "w");
+      fwrite($versionFile, $infoApp);
+
       fwrite($file, $html);
       fwrite($signupCssFile, $cssApp);
       fwrite($configFile, $configApp);
