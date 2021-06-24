@@ -3,18 +3,19 @@ session_start();
 $project_name = $_POST['project_name'];
 $_SESSION['type'] = $project_type = $_POST['project_type'];
 
+
 $infoApp = 
-'
+`
 {
   "info": [
       {
           "version" : "1.0",
-          "type" : "Web Application"
+          "type" : "Web Application",
       }
   ]
 }
 
-';
+`;
 
 $infoWeb = 
 '
@@ -552,7 +553,6 @@ switch ($project_type) {
         fwrite($functionFile, $functions);
         header("location: $project_name");
         break;
-
     case 'Website':
         mkdir("$project_name/css");
         mkdir("$project_name/js");

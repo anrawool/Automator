@@ -10,21 +10,8 @@
     <title>PHP Project Automator</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand active" href="index.php">Main</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" href="folders.php">Folders</a>
-            <a class="nav-link" href="#">Files</a>
-        </div>
-        </div>
-    </div>
-    </nav>
-    <div class="form" style="margin: 0 auto; max-width: 700px; border: 2px solid; padding: 20px; border-radius: 10px; margin-top: 100px;">
+    <?php include'inc/header.php';?>
+    <div class="form" style="margin: 0 auto; max-width: 700px; border: 2px solid; padding: 20px; border-radius: 10px;">
         <form method="post" action="create.php">
         <fieldset>
             <legend>Create Project</legend>
@@ -37,7 +24,7 @@
             <select id=" Select" class="form-select" name="project_type">
                 <option>Basic</option>
                 <option>Basic + DB</option>
-                <option>Laravel</option>
+                <!-- <option>Laravel</option> -->
                 <option>Website</option>
                 <option>Web Application</option>
             </select>

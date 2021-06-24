@@ -1,18 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="../css/signup.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VirtualArc | Registration</title>
+    <title>PHP Automator | Registration</title>
    </head>
 <body>
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
 
-      <form action="redirects/signup.php" method="post" autocomplete="off">
+      <form action="../controllers/SignupController.php" method="post" autocomplete="off">
         <div class="user-details">
           <div class="input-box">
             <span class="details">First Name</span>
@@ -43,6 +44,5 @@
       </form>
     </div>
   </div>
-  <script src="js/close_tab.js"></script>
 </body>
 </html>
