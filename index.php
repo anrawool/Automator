@@ -6,22 +6,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css" integrity="sha512-ifsLB5FigXH07aADF1bmVX8B66KrNLZGT6RY9HPN3hTn9eaP+t16azYMAuULHZJyR8zC4O5Vt/76YZG6jNktIA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
     <title>PHP Project Automator</title>
 </head>
 <body>
     <?php include'inc/header.php';?>
-    <div class="form" style="margin: 0 auto; max-width: 700px; border: 2px solid; padding: 20px; border-radius: 10px;">
-        <form method="post" action="create.php">
+    <div class="form" style="margin: 0 auto; max-width: 700px; padding: 20px; border-radius: 3px;">
+        <form method="post" action="create.php" class="form-project">
         <fieldset>
             <legend>Create Project</legend>
             <div class="mb-3">
-            <label for=" TextInput" class="form-label">Project Name</label>
-            <input type="text" id=" TextInput" class="form-control" placeholder="Project Name (Whitespaces are not allowed at the end)" name="project_name" autocomplete="off">
+            <label for="name" class="form-label">Project Name</label>
+            <input type="text" id="name" class="name" placeholder="Project Name (Whitespaces are not allowed at the end)" name="project_name" autocomplete="off">
             </div>
             <div class="mb-3">
-            <label for=" Select" class="form-label">Project Type</label>
-            <select id=" Select" class="form-select" name="project_type">
+            <label for="type">Project Type</label>
+            <select id="type" class="form-select name" name="project_type">
                 <option>Basic</option>
                 <option>Basic + DB</option>
                 <!-- <option>Laravel</option> -->
@@ -29,7 +29,7 @@
                 <option>Web Application</option>
             </select>
             </div>
-            <button type="submit" class="btn btn-success">Create</button>
+            <button type="submit" class="btn btn-success create">Create</button>
             <button type="reset" class="btn btn-danger mx-3">Reset</button>
         </fieldset>
         </form>

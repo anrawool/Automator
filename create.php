@@ -526,6 +526,8 @@ switch ($project_type) {
         $versionFile = fopen("$project_name/version.json", "w");
         fwrite($versionFile, $infoBasic);
 
+        $READMEFile = fopen("$project_name/README.md", "w");
+
         fwrite($file, $css);
         header("location: $project_name");
         break;
@@ -546,6 +548,8 @@ switch ($project_type) {
         $versionFile = fopen("$project_name/version.json", "w");
         fwrite($versionFile, $infoBasicDB);
 
+        $READMEFile = fopen("$project_name/README.md", "w");
+
         fwrite($file, $html);
         fwrite($cssFile, $css);
         fwrite($configFile, $config);
@@ -563,6 +567,8 @@ switch ($project_type) {
 
         $versionFile = fopen("$project_name/version.json", "w");
         fwrite($versionFile, $infoWeb);
+
+        $READMEFile = fopen("$project_name/README.md", "w");
 
         header("location: $project_name");
         break;
@@ -592,6 +598,7 @@ switch ($project_type) {
       $functionFile = fopen("$project_name/inc/functions.php", "w");
 
       $configFile = fopen("$project_name/inc/config.php", "w");
+      $READMEFile = fopen("$project_name/README.md", "w");
 
       $header = fopen("$project_name/inc/header.php", "w");
       $footer = fopen("$project_name/inc/footer.php", "w");
