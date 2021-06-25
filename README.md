@@ -11,11 +11,6 @@ It is a costumizable program that can be set according to your needs. You can us
 - Automating Web Applications with built-in authentication
 - Automating Workflow with a click of a button
 
-## Upcoming Features Are:
-
-- Automating Database Table Management
-- User Interface for Managing Types of Projects and etc…
-
 ### How To Use
 
 1.  Download the files in the repository
